@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaranjaAnime - Sua plataforma de animes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">Laranja<span>Anime</span></h1>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#animes">Animes</a></li>
+                    <li><a href="#categorias">Categorias</a></li>
+                    <li><a href="#populares">Populares</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <div class="user-info" id="userInfo">
+                        <span id="userName"></span>
+                        <button class="btn-logout" id="logoutBtn"><i class="fas fa-sign-out-alt"></i></button>
+                    </div>
+                    <button class="btn-login" id="loginBtn">Entrar</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h2>Bem-vindo ao LaranjaAnime</h2>
+                <p>Assista seus animes favoritos com a melhor qualidade</p>
+                <button class="btn-primary" onclick="document.getElementById('animes').scrollIntoView({behavior: 'smooth'})">
+                    Explorar Animes
+                </button>
+            </div>
+        </section>
+
+        <section id="animes" class="animes-section">
+            <h2 class="section-title">Animes em Destaque</h2>
+            <div class="animes-grid" id="animesGrid">
+                <!-- Animes serão carregados aqui via JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Usuário:</label>
+                        <input type="text" id="username" required placeholder="Digite seu usuário">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha:</label>
+                        <input type="password" id="password" required placeholder="Digite sua senha">
+                    </div>
+                    <button type="submit" class="btn-submit">Entrar</button>
+                </form>
+                <p class="demo-account">Demo: usuário: "demo" | senha: "123456"</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal do Player -->
+    <div id="playerModal" class="modal player-modal">
+        <div class="modal-content player-content">
+            <div class="modal-header player-header">
+                <h2 id="animeTitle">Título do Anime</h2>
+                <span class="close-player">&times;</span>
+            </div>
+            <div class="modal-body player-body">
+                <div class="video-container" id="videoContainer">
+                    <iframe 
+                        id="videoPlayer"
+                        src="" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="anime-info" id="animeInfo">
+                    <p id="animeDescription"></p>
+                    <div class="episode-selector">
+                        <label for="episodeSelect">Episódio:</label>
+                        <select id="episodeSelect">
+                            <option value="1">Episódio 1</option>
+                            <option value="2">Episódio 2</option>
+                            <option value="3">Episódio 3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
